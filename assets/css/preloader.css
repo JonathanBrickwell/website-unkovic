@@ -1,0 +1,169 @@
+/** Preloader css **/
+@keyframes slided {
+    from {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    to {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+#_preloader._show_preloader {
+    animation: none;
+    animation-delay: none;
+    transform: scaleY(1);
+}
+
+#_preloader {
+    z-index: 100;
+    transform: scaleY(1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #2b2b2b;
+    animation: slided 0.6s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+    animation-delay: 1.2s;
+}
+
+#_preloader_inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#_preloader_content {
+    padding: 1em;
+    text-align: center;
+}
+
+#_preloader_title_cont {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-top: 70px;
+    color: #2b2b2b;
+}
+
+@keyframes slideSkewInDown {
+    from {
+        transform: translateY(-100%) skewY(9deg);
+    }
+
+    to {
+        transform: translateY(0) skewY(0);
+    }
+}
+
+@keyframes slideSkewInDown2 {
+    from {
+        transform: translateY(0) skewY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(125%) skewY(-7deg);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleInLeft {
+    from {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    to {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+@keyframes scaleOutRight {
+    from {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+    to {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+._show_preloader #_preloader_title {
+    transform: translateY(-100%) skewY(0);
+    animation: slideSkewInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1s;
+}
+
+#_preloader_title {
+    font-size: 1.7em;
+    transform: translateY(0) skewY(0);
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+    animation: slideSkewInDown2 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+#_preloader_line_cont {
+    height: 100px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+}
+
+#_preloader_line {
+    position: relative;
+    display: block;
+    height: 2px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#_preloader_line_first {
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transform: scaleX(0);
+    display: none;
+}
+
+#_preloader_line_second {
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    transform: scaleX(1);
+    animation: scaleOutRight 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+._show_preloader #_preloader_line_first {
+    display: block;
+    animation: scaleInLeft 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+._show_preloader #_preloader_line_second {
+    transform: scaleX(0);
+    animation: scaleInLeft 1s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+._preloader_bg {
+    background: #fdfdfd;
+}
